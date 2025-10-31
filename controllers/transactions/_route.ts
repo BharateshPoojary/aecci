@@ -1,9 +1,15 @@
 import { Router } from "express";
-import {createTransaction}  from "./transaction.ts";
-export const transactionRouter = Router()
-// transactionRouter.get("/getAll", transaction.getTransaction);
+import {
+  getTransaction,
+  createTransaction,
+  getTransactionById,
+  updateTransaction,
+  deleteTransaction,
+} from "./transaction.ts";
+export const transactionRouter = Router();
 transactionRouter.post("/createTransaction", createTransaction);
-// transactionRouter.put("/updateTransaction", transaction.updateTransaction);
-// transactionRouter.delete("/deleteTransaction", transaction.deleteTransaction);
-
+transactionRouter.get("/", getTransaction);
+transactionRouter.get("/:id", getTransactionById);
+transactionRouter.put("/:id", updateTransaction);
+transactionRouter.delete("/:id",deleteTransaction)
 
