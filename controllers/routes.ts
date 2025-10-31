@@ -1,6 +1,6 @@
-import express from "express"
-const router = express.Router();
-import {transactions} from "../controllers/routes"
-router.use("/transactions", transactions);
+import express from "express";
+const expressRouter = express.Router();
+import { transactionRouter } from "./transactions/_route.ts";
+expressRouter.use("/transactions", transactionRouter);
 
-module.exports = router;
+export default expressRouter;

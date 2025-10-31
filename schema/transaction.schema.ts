@@ -1,7 +1,7 @@
 import { model, Schema } from "mongoose";
 
 
- const transactionSchema = new Schema(
+ export const transactionSchema = new Schema(
   {
     type: {
       type: String,
@@ -45,7 +45,7 @@ import { model, Schema } from "mongoose";
     date: {
       type: Date,
       required: [true, "Date is required"],
-      default: Date.now,
+      default: Date.now()
     },
   },
   {
@@ -53,5 +53,5 @@ import { model, Schema } from "mongoose";
   }
 );
 
-module.exports = model("Transaction", transactionSchema);
+export const transactionModel =  model("Transaction", transactionSchema);
 
